@@ -19,7 +19,7 @@ API для управления складом рулонов металла.
 1. Клонируйте репозиторий:
 
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:Qoorb/severstal-coils.git
     cd severstal-coils
     ```
 
