@@ -43,7 +43,7 @@ def get_coil(
     coil = repo.get_by_id(coil_id)
     if not coil:
         raise HTTPException(
-            status_code=404, detail=f"No Coil with this id: `{coil_id}` found"
+            status_code=404, detail=f"Рулон с этим id: `{coil_id}` не найден"
         )
     return CoilResponseWrapper(Coil=CoilResponse.model_validate(coil))
 
@@ -60,7 +60,7 @@ def update_coil(
     db_coil = repo.get_by_id(coil_id)
     if not db_coil:
         raise HTTPException(
-            status_code=404, detail=f"No Coil with this id: `{coil_id}` found"
+            status_code=404, detail=f"Рулон с этим id: `{coil_id}` не найден"
         )
 
     if coil.length is not None:
@@ -87,10 +87,10 @@ def remove_coil(
     coil = repo.get_by_id(coil_id)
     if not coil:
         raise HTTPException(
-            status_code=404, detail=f"No Coil with this id: `{coil_id}` found"
+            status_code=404, detail=f"Рулон с этим id: `{coil_id}` не найден"
         )
     if coil.removed_at:
-        raise HTTPException(status_code=400, detail="Coil is already deleted")
+        raise HTTPException(status_code=400, detail="Рулон уже удален")
     repo.remove(coil)
     return CoilDeleteResponse()
 
